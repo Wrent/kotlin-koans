@@ -3,6 +3,7 @@ package i_introduction._10_Object_Expressions
 import util.TODO
 import util.doc10
 import java.util.*
+import kotlin.Comparator
 
 fun todoTask10(): Nothing = TODO(
     """
@@ -18,6 +19,20 @@ fun todoTask10(): Nothing = TODO(
 
 fun task10(): List<Int> {
     val arrayList = arrayListOf(1, 5, 2)
-    Collections.sort(arrayList, todoTask10())
+    val comparator = object : Comparator<Int>  {
+        override fun compare(o1: Int?, o2: Int?): Int {
+            if (o1 == null) {
+                if (o2 == null) {
+                    return 0;
+                }
+                return 1;
+            }
+            if (o2 == null) {
+                return -1;
+            }
+            return o1.compareTo(o2)
+        }
+    }
+    Collections.sort(arrayList, comparator)
     return arrayList
 }

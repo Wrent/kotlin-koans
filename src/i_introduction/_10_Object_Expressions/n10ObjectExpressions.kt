@@ -30,7 +30,7 @@ fun task10(): List<Int> {
             if (o2 == null) {
                 return -1;
             }
-            return o1.compareTo(o2)
+            return o2.compareTo(o1)
         }
     }
     Collections.sort(arrayList, comparator)
